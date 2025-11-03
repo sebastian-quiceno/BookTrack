@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: biblioteca_db
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: biblioteca
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./DataBase/init:/docker-entrypoint-initdb.d
+      - biblioteca_data:/var/lib/postgresql/data
+
+volumes:
+  biblioteca_data:
