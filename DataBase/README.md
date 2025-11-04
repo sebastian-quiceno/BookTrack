@@ -85,7 +85,7 @@ spring.jpa.properties.hibernate.format_sql=true
 ## 8. Apagar la base de datos
 
 ```
-docker compose down
+docker stop biblioteca_db
 ```
 
 ## 9. Si deseas borrar datos completamente
