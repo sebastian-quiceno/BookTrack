@@ -10,6 +10,8 @@ Esta guía explica cómo iniciar la base de datos PostgreSQL en Docker y cómo c
 
 ## 2. Archivo `docker-compose.yml`
 
+Este es el arhivo encargado de crear la base de datos, aségurese de tenerlo. Si tiene problemas con los puertos, desde este archivo lo puede cambiar
+
 ```yaml
 tversion: '3.9'
 
