@@ -1,5 +1,7 @@
 package com.booktrack.booktrack.Class;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -7,36 +9,33 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "usuarios")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Usuario {
-
+public class HistorialActividad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_usuario")
-    private Integer id;
+    private Long idHistorial;
 
     @ManyToOne
-    @JoinColumn(name = "id_rol", nullable = false)
-    private Rol rol;
+    @JoinColumn(name = "id_usuario", nullable = false)
+    private Usuario usuario;
 
-    @Column(nullable = false, length = 30)
-    private String nombre;
+    @ManyToOne
+    @JoinColumn(name = "id_libro")
+    private Libro libro; // Puede ser null (ej: entrar al sistema sin ver un libro)
 
-    @Column(nullable = false, unique = true, length = 50)
-    private String email;
+    @ManyToOne
+    @JoinColumn(name = "id_accion", nullable = false)
+    private Accion accion;
 
-    @Column(name = "password_hash", nullable = false, length = 30)
-    private String password;
-
+    @Column(nullable = false)
+    private LocalDateTime fechaHora = LocalDateTime.now();
 }

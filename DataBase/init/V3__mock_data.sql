@@ -73,4 +73,5 @@ INSERT INTO visualizaciones (id_usuario, id_libro, fecha) VALUES
 INSERT INTO acciones (nombre_accion) VALUES
 ('VISUALIZAR'),
 ('PRESTAR'),
+('DEVOLVER'),
 ('CALIFICAR');

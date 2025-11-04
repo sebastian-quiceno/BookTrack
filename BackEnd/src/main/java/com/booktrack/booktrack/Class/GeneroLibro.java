@@ -12,19 +12,19 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "roles")
+@Table(name = "generos_libros")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Rol {
+public class GeneroLibro {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_rol")
-    private Integer id;
+    @Column(name = "id_genero")
+    private long id;
 
-    @Column(name = "nombre_rol", nullable = false, unique = true, length = 30)
-    private String nombre;
+    @Column(nullable = false, length = 100)
+    private String titulo;
 
 }

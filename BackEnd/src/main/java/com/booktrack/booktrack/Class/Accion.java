@@ -5,26 +5,21 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "roles")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Rol {
-
+public class Accion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_rol")
-    private Integer id;
+    private Long idAccion;
 
-    @Column(name = "nombre_rol", nullable = false, unique = true, length = 30)
-    private String nombre;
-
+    @Column(length = 20, nullable = false, unique = true)
+    private String nombreAccion; // Ej: "PRESTAR", "VISUALIZAR", "CONSULTAR"
 }

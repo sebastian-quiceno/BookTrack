@@ -28,7 +28,8 @@ CREATE TABLE libros (
   autor VARCHAR(100),
   fecha DATE,
   cantidad_total INT DEFAULT 1 CHECK (cantidad_total >= 0),
-  cantidad_disponible INT DEFAULT 1 CHECK (cantidad_disponible >= 0)
+  cantidad_disponible INT DEFAULT 1 CHECK (cantidad_disponible >= 0),
+  portada VARCHAR(500)
 );
 
 CREATE TABLE prestamos (

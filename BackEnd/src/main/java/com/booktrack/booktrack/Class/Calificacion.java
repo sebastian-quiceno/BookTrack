@@ -7,36 +7,32 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "usuarios")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Usuario {
-
+public class Calificacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_usuario")
-    private Integer id;
+    private Long id;
+
+    // Ej: 1 a 5 estrellas
+    private int puntuacion; 
+
+    @Column(length = 500)
+    private String comentario;
 
     @ManyToOne
-    @JoinColumn(name = "id_rol", nullable = false)
-    private Rol rol;
+    @JoinColumn(name = "id_usuario", nullable = false)
+    private Usuario usuario;
 
-    @Column(nullable = false, length = 30)
-    private String nombre;
-
-    @Column(nullable = false, unique = true, length = 50)
-    private String email;
-
-    @Column(name = "password_hash", nullable = false, length = 30)
-    private String password;
-
+    @ManyToOne
+    @JoinColumn(name = "id_libro", nullable = false)
+    private Libro libro;
 }
