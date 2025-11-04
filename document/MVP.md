@@ -111,5 +111,3 @@ Se deben asegurar pruebas unitarias mínimas en componentes clave.
 - Cobertura mínima sugerida: 60%.
 
 ---
-
-¿Quieres que te ayude a convertir esto en tareas para un tablero de Trello, Jira o Notion? También puedo ayudarte a generar casos de prueba o diagramas de arquitectura si lo necesitas.
