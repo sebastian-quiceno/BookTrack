@@ -65,13 +65,6 @@ CREATE TABLE acciones(
   nombre_accion VARCHAR (20)
 );
 
-CREATE TABLE visualizaciones(
-  id_visualizacion SERIAL PRIMARY KEY,
-  id_usuario INT NOT NULL REFERENCES usuarios(id_usuario),
-  id_libro INT NULL REFERENCES libros(id_libro),
-  fecha TIMESTAMP DEFAULT NOW()
-);
-
 -- índices recomendados
 CREATE INDEX idx_libros_titulo ON libros (titulo);
 CREATE INDEX idx_prestamos_usuario ON prestamos (id_usuario);
